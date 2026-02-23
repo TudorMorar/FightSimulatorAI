@@ -1,0 +1,44 @@
+.character-select {
+  text-align: center;
+  padding: 30px;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.header-buttons button {
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+}
+
+.header-buttons button.active {
+  background: #00ffaa;
+  color: black;
+  font-weight: bold;
+}
+
+.character-select .character-image {
+  width: 100%;
+  max-width: 260px; /* card = imagine */
+  height: 260px;
+
+  object-fit: contain;
+  background: radial-gradient(circle at center, #0f0f1a, #050508);
+  padding: 12px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.4),
+    inset 0 0 30px rgba(0, 255, 170, 0.15);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}

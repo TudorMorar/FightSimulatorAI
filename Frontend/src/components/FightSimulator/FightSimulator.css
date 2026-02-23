@@ -1,0 +1,490 @@
+.fight-arena {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+/* ===== ME ===== */
+
+.fighter-card {
+  background: rgba(30, 42, 58, 0.8);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  min-width: 220px;
+}
+
+.fighter-card.mine {
+  box-shadow: 0 0 25px rgba(0, 255, 160, 0.6);
+}
+
+/* nume jucător */
+.fighter-card h3 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #00ffaa;
+
+  text-shadow: 0 0 8px rgba(0, 255, 170, 0.9), 0 0 18px rgba(79, 172, 254, 0.9),
+    0 0 32px rgba(0, 255, 170, 0.8);
+
+  margin-bottom: 10px;
+}
+
+/* stats */
+.fighter-card p {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 4px 0;
+
+  color: #ffffff;
+
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.9), 1px -1px 0 rgba(0, 0, 0, 0.9),
+    -1px 1px 0 rgba(0, 0, 0, 0.9), 1px 1px 0 rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 255, 170, 0.6);
+}
+
+/* stamina text de pe card */
+.fighter-card .stamina-text {
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #00ffaa;
+
+  text-shadow: 0 0 6px rgba(0, 255, 170, 0.8), 0 0 14px rgba(79, 172, 254, 0.8);
+}
+
+/* stat row */
+/* tabel stats */
+.stats-table {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* fiecare rând */
+.stat-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 50px;
+  align-items: center;
+}
+
+/* icon */
+.stat-icon {
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* label */
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #4facfe;
+
+  text-shadow: 0 0 6px rgba(79, 172, 254, 0.9), 0 0 12px rgba(0, 255, 170, 0.6);
+}
+
+/* value */
+.stat-value {
+  text-align: right;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #ffffff;
+
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 0 0 10px rgba(0, 255, 170, 0.8);
+}
+
+/* stat dominant */
+.stat-row.dominant {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.15),
+    rgba(255, 215, 0, 0.05)
+  );
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+.stat-row.dominant .stat-label {
+  color: gold;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 1), 0 0 18px rgba(255, 180, 0, 0.9);
+}
+
+.stat-row.dominant .stat-value {
+  color: gold;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 1), 0 0 20px rgba(255, 180, 0, 0.9);
+}
+
+/* ================= ENEMY LIST ================= */
+
+.enemy-list {
+  width: 400px; /* 🔥 puțin mai lat */
+  max-height: 420px;
+  overflow-y: auto;
+
+  padding: 6px 10px 6px 6px; /* spațiu pentru scrollbar */
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-x: hidden;
+  box-sizing: border-box; /* 🔥 oprește glitch-urile */
+}
+
+/* ===== Enemy Card ===== */
+
+.enemy-card {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 84px;
+  padding: 12px 14px;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(10, 25, 40, 0.9),
+    rgba(20, 45, 70, 0.7)
+  );
+
+  border: 1px solid rgba(0, 255, 170, 0.15);
+  cursor: pointer;
+
+  box-shadow: 0 0 12px rgba(0, 255, 170, 0.15),
+    0 0 20px rgba(79, 172, 254, 0.15);
+
+  transition: all 0.2s ease;
+}
+
+/* neon stripe */
+.enemy-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 4px;
+  border-radius: 4px;
+
+  background: linear-gradient(#00ffaa, #4facfe);
+  opacity: 0.4;
+}
+
+/* avatar */
+.enemy-card img {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: cover;
+
+  box-shadow: 0 0 14px rgba(0, 255, 170, 0.6);
+}
+
+/* text */
+.enemy-card .enemy-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.enemy-card .enemy-name {
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #00ffaa;
+  text-shadow: 0 0 10px rgba(0, 255, 170, 0.8);
+}
+
+.enemy-card .enemy-level {
+  font-size: 0.75rem;
+  color: #4facfe;
+  opacity: 0.9;
+}
+
+/* hover */
+.enemy-card:hover {
+  transform: translateX(6px) scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 255, 170, 0.7), 0 0 40px rgba(79, 172, 254, 0.7);
+}
+
+/* selected */
+.enemy-card.selected {
+  background: linear-gradient(135deg, #ffd166, #ffb703);
+  color: #001219;
+
+  box-shadow: 0 0 40px rgba(255, 200, 0, 1), 0 0 70px rgba(255, 180, 0, 0.9);
+}
+
+.enemy-card.selected .enemy-name {
+  color: #001219;
+  text-shadow: none;
+}
+
+/* scrollbar */
+.enemy-list::-webkit-scrollbar {
+  width: 10px; /* 🔥 mai lat */
+}
+
+.enemy-list::-webkit-scrollbar-track {
+  background: rgba(10, 20, 40, 0.8);
+  border-radius: 10px;
+}
+
+.enemy-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00ffaa, #4facfe);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.8);
+}
+
+/* ===== ACTION ===== */
+
+.fight-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*Gight ANIMATION*/
+
+.fight-arena {
+  position: relative;
+}
+
+/* ===== Animare avatare ===== */
+
+/* ================= BATTLE SCENE ================= */
+
+.battle-scene {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 15, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.battle-fighter img {
+  width: 280px;
+  filter: drop-shadow(0 0 40px red);
+}
+
+/* animații */
+.battle-scene.fighting .left {
+  animation: leftAttack 0.3s infinite alternate;
+}
+
+.battle-scene.fighting .right {
+  animation: rightHit 0.3s infinite alternate;
+}
+
+.battle-scene.ko .right {
+  animation: ko 1s forwards;
+}
+
+@keyframes leftAttack {
+  to {
+    transform: translateX(80px);
+  }
+}
+
+@keyframes rightHit {
+  to {
+    transform: translateX(-40px) rotate(-5deg);
+  }
+}
+
+@keyframes ko {
+  to {
+    transform: translateX(-100px) rotate(30deg) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+/* flash */
+.battle-flash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: flash 0.3s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* winner */
+.battle-winner-screen {
+  background: rgba(15, 20, 40, 0.9);
+  padding: 40px 60px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 80px rgba(255, 200, 0, 0.9);
+  animation: winnerPop 0.6s ease-out forwards;
+}
+
+@keyframes winnerPop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.winner-avatar {
+  display: block;
+  margin: 0 auto 20px auto; /* 🔥 forțează centrare */
+  width: 220px;
+  border-radius: 16px;
+  box-shadow: 0 0 50px gold;
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 20px gold;
+  }
+  to {
+    box-shadow: 0 0 60px gold;
+  }
+}
+
+.battle-winner-screen h2 {
+  font-size: 2.6rem;
+  color: gold;
+  text-shadow: 0 0 25px rgba(255, 215, 0, 1);
+  margin-top: 10px;
+}
+
+/* buttons */
+.battle-buttons {
+  margin-top: 25px;
+}
+
+.battle-buttons button {
+  background: linear-gradient(135deg, gold, orange);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 180, 0, 0.7);
+}
+
+.battle-buttons button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes screenShake {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-10px, 5px);
+  }
+  40% {
+    transform: translate(8px, -6px);
+  }
+  60% {
+    transform: translate(-6px, 4px);
+  }
+  80% {
+    transform: translate(6px, -4px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.battle-scene.ko {
+  animation: screenShake 0.6s ease-in-out;
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti span {
+  position: absolute;
+  width: 10px;
+  height: 16px;
+  background: gold;
+  opacity: 0.9;
+  animation: confettiFall 2.5s linear infinite;
+}
+
+.confetti span:nth-child(odd) {
+  background: #ff5252;
+}
+.confetti span:nth-child(even) {
+  background: #00e5ff;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.stamina-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(10, 20, 40, 0.85);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0 6px 0;
+
+  border: 1px solid rgba(0, 255, 170, 0.5);
+
+  box-shadow: inset 0 0 12px rgba(0, 255, 170, 0.3),
+    0 0 10px rgba(0, 255, 170, 0.6), 0 0 20px rgba(79, 172, 254, 0.6);
+}
+
+.stamina-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffaa 0%, #00ff88 40%, #00ccff 100%);
+
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.9), 0 0 25px rgba(79, 172, 254, 0.8);
+
+  transition: width 0.4s ease;
+}
+
+/* text stamina */
+.stamina-text {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 8px;
+
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 0 0 10px rgba(0, 255, 170, 0.8),
+    0 0 20px rgba(79, 172, 254, 0.8);
+}

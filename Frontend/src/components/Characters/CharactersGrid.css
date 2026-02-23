@@ -1,0 +1,120 @@
+/* ——— PERSONAJUL MEU ——— */
+.characters-grid-container .my-character-card {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+  background: #f8f8f8;
+  max-width: 260px;
+}
+
+.characters-grid-container .my-character-card h3 {
+  margin-top: 0;
+}
+
+.characters-grid-container .my-character-card img.my-character-image {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ——— GRID ——— */
+
+.characters-grid {
+  display: grid;
+  gap: 24px;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .characters-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ——— CARDURI ——— */
+
+.characters-grid-container .card {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 10px;
+  background: white;
+  text-align: center;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.characters-grid-container .card:hover {
+  transform: scale(1.02);
+}
+
+/* ——— IMAGINI ——— */
+
+.characters-grid-container .character-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+/* ——— STĂRI ——— */
+
+.characters-grid-container .character-mine {
+  border: 2px solid green;
+  background: #e9ffe9;
+}
+
+.characters-grid-container .character-owned {
+  border: 2px solid red;
+  background: #ffe9e9;
+}
+
+.characters-grid-container .mine-label {
+  color: green;
+  font-weight: bold;
+}
+
+.characters-grid-container .taken-label {
+  color: red;
+  font-weight: bold;
+}
+
+/* ——— BUTOANE ——— */
+
+.characters-grid-container button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.character-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-btn {
+  margin-top: 6px; /* mic: card → buton */
+  margin-bottom: 24px; /* mare: separare față de următorul */
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #00ffaa;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  max-width: 220px;
+}
+
+.character-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #00ffaa;
+  text-shadow: 0 0 6px rgba(0, 255, 170, 0.7);
+}

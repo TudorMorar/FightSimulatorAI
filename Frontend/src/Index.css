@@ -1,0 +1,21 @@
+/* index.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(
+      135deg,
+      rgba(26, 42, 108, 0.5),
+      rgba(42, 72, 88, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("/FightSimulatorAI2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #ffffff;
+  min-height: 100vh;
+}

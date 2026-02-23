@@ -1,0 +1,174 @@
+/* ================= POSITION ================= */
+
+.left-panel {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+  transform-origin: top left;
+}
+
+/* ================= CARD ================= */
+
+.left-panel-inner {
+  background: rgba(25, 35, 50, 0.75);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 14px 16px;
+
+  box-shadow: 0 0 25px rgba(0, 255, 170, 0.25),
+    0 0 60px rgba(79, 172, 254, 0.25), 0 12px 30px rgba(0, 0, 0, 0.8);
+
+  transition: transform 0.25s ease;
+}
+
+/* ================= HEADER ================= */
+
+.pp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pp-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #00ffaa;
+  text-shadow: 0 0 12px rgba(0, 255, 170, 0.8);
+}
+
+.pp-icon {
+  font-size: 1.6rem;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 170, 1));
+}
+
+.pp-name {
+  white-space: nowrap;
+}
+
+.pp-toggle {
+  background: none;
+  border: none;
+  color: #00ffaa;
+  font-size: 1.4rem;
+  cursor: pointer;
+  text-shadow: 0 0 10px rgba(0, 255, 170, 0.8);
+  transition: transform 0.2s ease;
+}
+
+.pp-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* ================= TEXT ================= */
+
+.pp-warning {
+  margin-top: 10px;
+  text-align: center;
+  color: #ffd166;
+  font-size: 0.9rem;
+}
+
+/* ================= LEVEL UP ================= */
+
+.level-up .left-panel-inner {
+  animation: levelPulse 1.2s ease;
+}
+
+@keyframes levelPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.4);
+  }
+  50% {
+    transform: scale(1.07);
+    box-shadow: 0 0 30px rgba(79, 172, 254, 0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .left-panel {
+    top: 10px;
+    left: 10px;
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  .left-panel {
+    top: 6px;
+    left: 6px;
+    transform: scale(0.6);
+  }
+}
+
+/* container care ține XP + stamina pe același rând */
+.pp-xp-row {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+/* container vertical stamina */
+.pp-stamina-vertical {
+  width: 28px;
+  background: rgba(10, 20, 30, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  box-shadow: inset 0 0 12px rgba(0, 255, 170, 0.4),
+    0 0 12px rgba(0, 255, 170, 0.5), 0 0 25px rgba(79, 172, 254, 0.5);
+
+  border: 1px solid rgba(0, 255, 170, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* umplere stamina */
+.pp-stamina-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #00ffaa 0%, #00ff88 40%, #00ccff 100%);
+
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.8), 0 0 25px rgba(79, 172, 254, 0.8);
+
+  transition: height 0.4s ease;
+  z-index: 1;
+}
+
+/* valoare stamina peste bară */
+.pp-stamina-value {
+  position: relative;
+  z-index: 2;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+
+  /* text alb pur */
+  color: #ffffff;
+
+  /* outline negru + glow */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 0 0 6px rgba(0, 255, 170, 0.8), 0 0 12px rgba(0, 0, 0, 1);
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+
+  pointer-events: none;
+}

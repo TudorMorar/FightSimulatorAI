@@ -1,0 +1,130 @@
+/* ================= LAYOUT ================= */
+
+.home-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .home-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= WELCOME ================= */
+
+.welcome-bar {
+  grid-column: 1 / -1;
+  padding: 16px 22px;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.25),
+    rgba(0, 255, 160, 0.2)
+  );
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.35);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* ================= LEFT PANEL (PROGRESS) ================= */
+
+.player-progress-wrapper {
+  position: sticky;
+  top: 20px;
+}
+
+/* ================= MAIN ZONE ================= */
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ================= ACTION BUTTONS ================= */
+
+.header-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.header-buttons button {
+  flex: 1;
+  max-width: 260px;
+
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: none;
+
+  background: linear-gradient(135deg, #00d4ff, #00ffa0);
+  color: #001b2e;
+
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  box-shadow: 0 0 18px rgba(0, 255, 160, 0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header-buttons button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 28px rgba(0, 255, 160, 1);
+}
+
+/* ================= CARDS ================= */
+
+.home-card {
+  background: rgba(30, 42, 58, 0.75);
+
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  border-radius: 18px;
+  padding: 20px;
+
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.25), 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .header-buttons {
+    flex-direction: column;
+  }
+}
+
+.battle-scene.finished .battle-fighter {
+  animation: none;
+}
+
+.battle-winner {
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  color: gold;
+  text-shadow: 0 0 40px red;
+  animation: pop 0.5s ease-out forwards;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

@@ -13,11 +13,11 @@
 
 
     <groupId>com</groupId>
-    <artifactId>GameProject</artifactId>
+    <artifactId>FightSimulatorAI</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>GameProject</name>
+    <name>FightSimulatorAI</name>
     <description>Personal website</description>
 
     <properties>
